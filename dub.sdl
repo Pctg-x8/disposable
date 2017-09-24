@@ -1,0 +1,6 @@
+name "disposable"
+description "A disposing mechanism like IDisposable in C# and an using guard like the using syntax in C#"
+authors "S.Percentage"
+copyright "Copyright 2017 S.Percentage"
+license "MIT"
+targetType "sourceLibrary"
