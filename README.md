@@ -34,10 +34,11 @@ static assert(is(typeof(d2) == DisposableInt));
 ## Provided classes/methods
 
 - `interface Disposable`
-  - A `Disposable` interface that can be disposed by calling `dispose` method
-  - `nothrow void dispose()`
-    - Disposes unmanaged objects(OpenGL Objects, Win32 Objects...) in the object.
+    - A `Disposable` interface that can be disposed by calling `dispose` method
+    - `nothrow void dispose()`
+        - Disposes unmanaged objects(OpenGL Objects, Win32 Objects...) in the object.
+
 - `string using(string)() {...}`
-  - The `using` statement emulation.
-  - Passes a variable declaration statement as string(using `q{...}` is preferred) to declare a variable and insert a code such as `scope(exit) {varname}.dispose();`
-  - If you want a type which is inferred, you can omit `auto`.
+    - The `using` statement emulation.
+    - Passes a variable declaration statement as string(using `q{...}` is preferred) to declare a variable and to insert a code such as `scope(exit) {varname}.dispose();`
+    - If you want a type which is inferred, you can omit `auto`.
