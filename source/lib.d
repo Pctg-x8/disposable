@@ -1,31 +1,11 @@
 /// Disposable
+module disposable;
 
 /// Indicates that the object(or the inner object in it) can be disposable manually+immediately
 interface Disposable
 {
     /// Disposes unmanaged objects in the object
     public nothrow void dispose();
-}
-
-/// Scope guard simulating the `using` statement in C#
-struct UsingGuard(T: Disposable)
-{
-    /// Inner reference to an object
-    public T ptr;
-    alias ptr this;
-
-    /// Copy Constructor: Prohibited
-    public this(this) @disable;
-    /// Move Constructor: Prohibited
-    public this(U: Disposable)(UsingGuard!U) @disable;
-    /// This is an unsafe operation because the application cannot access to the source object
-    private this(T src) { this.ptr = src; }
-
-    ~this()
-    {
-        /// Dispose inner pointer
-        this.ptr.dispose();
-    }
 }
 
 /// extended syntax: using!q{ {auto/type} {varname} = {expr}; }
